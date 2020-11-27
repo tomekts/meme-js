@@ -2,31 +2,79 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	
+	var show=1;
+	var first;
+	var second;
+	var firstcard
 	var buttonTest = document.querySelector('.buttonTest');
 	var cardlist = document.querySelectorAll('.card');
-	buttonTest.addEventListener('click', function(){
-		
-		
-		addRandomImage();
 
-	})
+	buttonTest.addEventListener('click', function(){		
+		addRandomImage();
+		})
+
+	
+	for (var i = 0; i < 16; i++) {
+		cardlist[i].addEventListener('click', check);		
+	}
+
+	
+
+	function check(){		
+		if (show==1) {
+			first = this.firstElementChild.src;	
+			for (var i =0 ; i<16; i++) {
+				if (this===cardlist[i]) {
+					firstcard=i;
+				}
+			}
+
+			console.log('fir: ' +first)		
+		}			
+		
+		this.firstElementChild.classList.remove('unvisible');
+		if (show==2) {
+			second = this.firstElementChild.src;	
+			console.log('sec: '+second)			
+			if (first===second) {
+				console.log('brawo');
+				this.firstElementChild.classList.add('oki');
+				cardlist[firstcard].firstElementChild.classList.add('oki');
+				
+				
+			}
+		}
+
+		if (show==3) {
+			show=0;
+			for (var i = 0; i <cardlist.length; i++) {
+				cardlist[i].firstElementChild.classList.add('unvisible');
+			}
+		}
+		show++;
+		
+	}
+
+			
+	
 
 //testowanie js XD	
+/*
+	var first = this.firstElementChild.src;		
+	var second = this.firstElementChild.src;
+	var cars = ['kot', 'pies', 'indyk'];
+	console.log(cars);
+	cars.push('kot');
+	var car=[];
+	car.push('kot');
+	console.log(car.length);
 	
-	// var cars = ['kot', 'pies', 'indyk'];
-	// console.log(cars);
-	// cars.push('kot');
-	// var car=[];
-	// car.push('kot');
-	// console.log(car.length);
-	
-	// console.log(car.includes('kot'));
+	console.log(car.includes('kot'));
+*/
 
 	
 
 	function addRandomImage(){
-		console.log('adrandm');
 		var bussySite=[];
 		var bussyImage=[];	
 
@@ -52,16 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		}		
 	}
 
-	
-	
-
-
-
 	function addImage(site, number){
-		console.log('dodawanie obrazków');
 		var image = document.createElement('img');
 		image.src=("./images/icon"+number+'.png');
 		image.classList='image';
+		image.classList.add('unvisible')
 		cardlist[site].innerHTML='';
 		cardlist[site].appendChild(image);	
 		

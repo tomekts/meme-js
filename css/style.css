@@ -17,6 +17,7 @@ body{
 	background-color: lightblue;
 	display: inline-block;
 
+
 }
 
 .card{
@@ -25,11 +26,19 @@ body{
 	background-color: yellow;
 	margin: 10px;
 	float: left;
+	
+
+
+
 }
 .image{	
 	padding: 10px;
 }
 
-.visible{
+.unvisible{
 	display: none;
+}
+.oki{
+	opacity:0.2 !important; 
+	display: block !important;
 }
