@@ -1,0 +1,35 @@
+/*znacznik{
+właściwość:typ;
+}*/
+
+body{
+	background-color: lightgrey;	
+		
+}
+.upMenu{
+	background-color: lightyellow;
+	width: 500px;
+	height: 25px;
+}
+.memo{
+	width: 500px;
+	height: 500px;
+	background-color: lightblue;
+	display: inline-block;
+
+}
+
+.card{
+	width: 100px;
+	height: 100px;
+	background-color: yellow;
+	margin: 10px;
+	float: left;
+}
+.image{	
+	padding: 10px;
+}
+
+.visible{
+	display: none;
+}
